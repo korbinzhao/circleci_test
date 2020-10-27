@@ -24,12 +24,12 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
 # Under the workflows: map, we can coordinate our two jobs, defined above.
 workflows:
   version: 2
-  workflow_one: # this is the name of our workflow
-    jobs: # and here we list the jobs we are going to run.
-      - one
+  # workflow_one: # this is the name of our workflow
+  #   jobs: # and here we list the jobs we are going to run.
+  #     - one
   workflow_two: # this is the name of our workflow
     jobs: # and here we list the jobs we are going to run.
       - one
       - two:
         requires:
-          - two
+          - one

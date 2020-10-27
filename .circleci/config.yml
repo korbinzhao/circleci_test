@@ -28,6 +28,8 @@ workflows:
     jobs: # and here we list the jobs we are going to run.
       - one
   one_and_two: # this is the name of our workflow
+    requires: 
+      - one
     jobs: # and here we list the jobs we are going to run.
       - one
       - two

@@ -12,8 +12,6 @@ jobs: # we now have TWO jobs, so that a workflow can coordinate them!
       - run: echo "A first hello" # This prints "A first hello" to stdout.
       - run: sleep 25 # a command telling the job to "sleep" for 25 seconds.
   two: # This is our second job.
-    requires:
-      - one
     docker: # it runs inside a docker image, the same as above.
       - image: circleci/ruby:2.4.1
         auth:
@@ -32,4 +30,6 @@ workflows:
   workflow_two: # this is the name of our workflow
     jobs: # and here we list the jobs we are going to run.
       - one
+        requires:
+          - two
       - two
